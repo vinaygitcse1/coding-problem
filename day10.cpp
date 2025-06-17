@@ -1,4 +1,7 @@
 #include<iostream>
+#include<vector>
+#include <string>
+#include <cstring>
 using namespace std;
 
 
@@ -143,77 +146,197 @@ using namespace std;
 
 
 
-//valid palindrome
-// faltu charcter hatane h , sabko lowercase karna h , fir palindrome check
+// //valid palindrome (leetcode)
+// // faltu charcter hatane h , sabko lowercase karna h , fir palindrome check
 
 
-//step 1.lower case mai change karna upper case wale ko
-char ToLowerCase(char s){
+// //step 1.lower case mai change karna upper case wale ko
+// char ToLowerCase(char s){
 
-    if(s>='a'&& s<='z' ||s>='0'&& s<='9' ){
-        return s;
-    }
-    else{
-        char temp=s;
-        s= temp-'A'+'a';
-        return s;
+//     if(s>='a'&& s<='z' ||s>='0'&& s<='9' ){
+//         return s;
+//     }
+//     else{
+//         char temp=s;
+//         s= temp-'A'+'a';
+//         return s;
         
-    }
-}
+//     }
+// }
 
-//step2.faltu char jaise comma queston mark hash etc hatana 
-string faltuChar(string s){
-    string temp;
-    int i=0;
-    int n=s.length();
-    while(i<n){
-        if(s[i]>='a'&& s[i]<='z' ||s[i]>='A'&& s[i]<='Z' ||s[i]>='0'&& s[i]<='9' ){
-            temp.push_back(ToLowerCase(s[i]));
-            i++;
-        }
-        else{
-            i++;
-        }
-    }
-    return temp;
-}
+// //step2.faltu char jaise comma queston mark hash etc hatana 
+// string faltuChar(string s){
+//     string temp;
+//     int i=0;
+//     int n=s.length();
+//     while(i<n){
+//         if(s[i]>='a'&& s[i]<='z' ||s[i]>='A'&& s[i]<='Z' ||s[i]>='0'&& s[i]<='9' ){
+//             temp.push_back(ToLowerCase(s[i]));
+//             i++;
+//         }
+//         else{
+//             i++;
+//         }
+//     }
+//     return temp;
+// }
 
-//step 3.palindrome check karna 
-bool checkPalindrome(string s)
-{
+// //step 3.palindrome check karna 
+// bool checkPalindrome(string s)
+// {
     
-    string p= faltuChar(s);
+//     string p= faltuChar(s);
 
 
-    int i=0;
-    int j=p.length()-1;
-    while(i<=j){
-        if(p[i] != p[j]){
-        return false;
-        }
-            i++;
-            j--;
-    }
-    return true;
-}
-int main(){
-    string s="5?36@6?35";
+//     int i=0;
+//     int j=p.length()-1;
+//     while(i<=j){
+//         if(p[i] != p[j]){
+//         return false;
+//         }
+//             i++;
+//             j--;
+//     }
+//     return true;
+// }
+// int main(){
+//     string s="5?36@6?35";
     
-    string p=faltuChar(s);
-    if(checkPalindrome(p))
-    cout<<"Yes it is Palindrome"<<endl;
-    else
-    cout<<"Not plaindrome"<<endl;
+//     string p=faltuChar(s);
+//     if(checkPalindrome(p))
+//     cout<<"Yes it is Palindrome"<<endl;
+//     else
+//     cout<<"Not plaindrome"<<endl;
+// }
+
+
+
+//Leetcode 186 no,  (h.w.) video -22
+// Reverse word in a string
+// ex..I/p  My name is Vinay 
+//     O/p  yM eman si yaniV
+
+// spaces ko ignore kare or words ko reverse kare 
+
+
+
+
+
+//question .  most frequent char
+// Input: s = "testsample"
+// Output: 'e'
+
+// Input: s = "output"
+// Output: 't'
+// Explanation:  t and u are the characters with the same frequency, but t is lexicographically smaller.
+
+// char getMostFreqChar(string s){
+
+//     //har ek character(a to z) ka count store karna array mai
+//     int arr[26]={0};
+//     for(int i=0;i<s.length();i++){
+//         int ch=s[i];
+//         int number=ch-'a';
+//         arr[number]++;
+//     }
+
+//     //maximum count niklna or char ko niklna 
+//     int max=0;
+//     int ans=0;
+//     for(int i=0;i<26;i++){
+//         if(max<arr[i]){
+//             max=arr[i];
+//             ans=i;
+//         }
+//     }
+//     char result='a'+ans;
+//     return result;
+
+
+
+// }
+// int main(){
+//     string s;
+//     cout<<"enter the string  :  "<<endl;
+//     cin>>s;
+
+//    cout<<"Most occuring character the string is :    "<< getMostFreqChar(s);
+
+// }
+
+
+
+
+
+//imp. Note (built in functions)
+//Hamne padha ki cin apni excutation stop kar deta agar space , tab, ya new line aate h to 
+//so cin.getline(string name,length) ka use hota h jo space ko ignore karta h ;
+
+// int main(){
+//     // string s;
+//     // cout<<"Enter the string s : "<<endl;
+//     // cin>>s;
+//     // cout<<s;
+
+//     char q[100];
+//     cout<<"Enter the string q: "<<endl;
+//     cin.getline(q,100);
+//     cout<<q;
+// }
+
+
+//inbult functions
+// int main(){
+//     char ch[100]="Vinay";
+//     char d[100]="Vinay";
+
+//     //to find chacter array length
+//     cout<<"Lenth of Charcter array is    "<<strlen(ch)<<endl;
+
+
+//     //compare two character aary string(same o/p is 0, not same o/p is 1)
+//     cout<<"compare of Charcter arrays is    "<<strcmp(ch,d)<<endl;
+
+//     //copy karna in character aary
+//     // strcpy(destination,source)
+//     char x[100];
+//     strcpy(x,ch);
+//     cout<<"copy of Charcter arrays is    "<<x<<endl;
+
+
+// }
 
 
 
 
 
 
+//Replace space problem 
+// i/p: My Name is Vinay
+// o/p:My@40Name@40is@40Vinay
+//     string replaceSpaces(string &str){
+// 	// Write your code here.
+// 	string temp;
+// 	for(int i=0;i<str.length();i++){
+// 		if(str[i] != ' '){
+// 			temp.push_back(str[i]);
+// 		}
+// 		else{
+// 			temp.push_back('@');
+// 			temp.push_back('4');
+// 			temp.push_back('0');
+// 		}
+// 	}
+// 	return temp;
+// }
+
+// int main(){
+//     string s="My name is Vinay";
+//     cout<<replaceSpaces(s);
+// }
 
 
-
-}
+// h.w.(inplace solution replace space problem ka )
 
 
 
