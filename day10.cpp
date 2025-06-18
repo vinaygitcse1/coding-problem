@@ -211,12 +211,35 @@ using namespace std;
 
 
 
-//Leetcode 186 no,  (h.w.) video -22
+//Leetcode 186 no,  (h.w.) 
 // Reverse word in a string
 // ex..I/p  My name is Vinay 
 //     O/p  yM eman si yaniV
 
 // spaces ko ignore kare or words ko reverse kare 
+// void reverse(string& a,int s,int e){
+//     while(s<e){
+//         swap(a[s],a[e]);
+//         s++;
+//         e--;
+//     }
+    
+// }
+// int main(){
+//     string s="My father name is Vijay tiwari";
+//     int k=0;
+
+//     for(int i=0;i<=s.length();i++){
+// jab bhi space aae or null character aae to stop ho jana h 
+//         if(s[i]==' ' || s[i]=='\0'){
+//             reverse (s,k,i-1);
+//             k=i+1;
+//         }
+        
+//     }
+//     cout<<s;
+
+// }
 
 
 
@@ -310,7 +333,6 @@ using namespace std;
 
 
 
-
 //Replace space problem 
 // i/p: My Name is Vinay
 // o/p:My@40Name@40is@40Vinay
@@ -340,4 +362,167 @@ using namespace std;
 
 
 
+
+//remove all occurrences of a substring 
+// Note:(find; use to find substring in given string )
+//      (erase; use of erase the substring in given string)
+// i/p: daabcbaabcbc, part : abc
+// o/p: dab
+
+
+// agar string ke length zero h tab bahar nikl jana while loop se 
+// fir check kiya ki string ke ander part(substring) present h agar h to while loop ke ander chle jana 
+// fir erase kar dena loop se
+
+// int main(){
+//     string s= "daabcbaabcbc";
+//     string part="abc";
+
+//     while(s.length() !=0 && s.find(part)<s.length()){
+//         s.erase(s.find(part),part.length());
+//     }
+//     cout<<s;
+
+// }
+
+
+
+
+
+
+//permutation in string (most important question that uses sliding window concept)
+
+    // bool Checkequal(int a1[26],int a2[26]){
+    //     for(int i=0;i<26;i++){
+    //         if(a1[i] != a2[i])
+    //         return 0;
+    //     }
+    //     return 1;
+    // }
+
+
+
+    // bool checkInclusion(string s1, string s2) {
+    //    //a to z ke frequency in string s1;
+    //    int arr1[26]={0};
+    //    for(int i=0;i<s1.length();i++){
+    //     char ch =s1[i];
+    //     int index=ch-'a';
+    //     arr1[index]++;
+    //    } 
+
+    //    //sliding window ka use karege 
+    //    //traverse s2 string in window of size s1.length and compare
+    //    int i=0;
+    //    int windowSize=s1.length();
+    //    int arr2[26]={0};
+
+
+    // //running for only first window 
+    // //yaha hm new frequency array bana rhe s2 string ke liye s1 window size ka 
+    //    while(i<windowSize && i < s2.length()){
+    //     char ch =s2[i];
+    //     int index=ch-'a';
+    //     arr2[index]++;
+    //     i++;
+    //    }
+
+
+    //     //checking aarys are equal or not
+    //    if(Checkequal(arr1,arr2))
+    //    return 1;
+       
+
+    //    //aage window process karo
+    //    while(i < s2.length()){
+    //     char newchar=s2[i];
+    //     int index=newchar-'a';
+    //     arr2[index]++;
+
+    //     char oldchar=s2[i-windowSize];
+    //     index=oldchar-'a';
+    //     arr2[index]--;
+        
+    //     i++;
+
+    //     if(Checkequal(arr1,arr2))
+    //     return 1;
+    //    }
+
+    // return 0;  
+    // }
+
+    // int main(){
+    //     string s1="abcdabcdabcddccabcdabcd";
+    //     string s2="ab";
+    //     string s3="cc";
+    //     string s4="g";
+    //     if(checkInclusion(s4,s1)){
+    //         cout<<"permutation is present"<<endl;
+    //     }
+    //     else{
+    //         cout<<"Not present"<<endl;
+    //     }
+
+    // }
+
+
+
+
+
+
+    //Remove all adjacent duplicates in a string 
+
+    // h.w.1047 leetcode
+
+
+
+    //string compression (imp question ) leetcode 443
+    
+    string compression(string s){
+        string temp;
+        int i=0;
+        int ansIndex=0;
+        int n=s.length();
+
+        while(i<n){
+            int j=i+1;
+            while (j<n &&s[i]==s[j]){
+                j++;
+            }
+
+            //yaha kab aaege
+            //ya to string pura traverse ho jaye 
+            //ya to new/Different chater encounter kia hai
+            
+            //old char store kar lo
+            s[ansIndex]=s[i];
+            ansIndex++;
+
+            int count=j-i;
+
+            if(count>1){
+                //converting counting into single digit and saving in answer
+                string cvt =to_string(count);
+                for( char ch : cvt){
+                    s[ansIndex]=ch;
+                    ansIndex++;
+
+                }
+            }
+            //Moving new or different chacter 
+            i=j;
+        }
+        for(int i=0;i<ansIndex;i++){
+            temp.push_back(s[i]);
+        }
+        return temp;
+    }
+
+
+
+    int main(){
+        string s="aaabbbcccddddddddeeeeeeeeeeeeeeeeeeeeeee";
+        cout<<compression(s);
+    }
 
