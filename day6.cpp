@@ -2,22 +2,22 @@
 using namespace std;
 
 // selection sort
-// void selectionSort(vector<int>& arr, int n)
-// {   
-//     int pointer1;
+/*void selectionSort(vector<int>& arr, int n)
+{   
+    int pointer1;
 
-//     // Write your code here.
-//     for(int i=0;i<n-1;i++){
-//         pointer1=i;
-//         for(int j=i+1;j<n;j++){
-//             if(arr[pointer1]>=arr[j]){
-//                 pointer1=j;
-//             }
-//         }
-//         swap(arr[i],arr[pointer1]);
-//     }
-//     return ;
-// }
+    // Write your code here.
+    for(int i=0;i<n-1;i++){
+        pointer1=i;
+        for(int j=i+1;j<n;j++){
+            if(arr[pointer1]>=arr[j]){
+                pointer1=j;
+            }
+        }
+        swap(arr[i],arr[pointer1]);
+    }
+    return ;
+}*/
 
 //usecase: jab array/list/vector  ka size chota ho , or sorting chlana ho tab kam karta h 
 
@@ -25,34 +25,34 @@ using namespace std;
 
 
 //Bubble sort 
-// void BubbleSort(int arr[],int n){
-//  // Write your code here.
-//      for(int i=n-1;i>=0;i--){
-//         bool flag=1;
-//         for(int j=0;j<i;j++){
-//             if(arr[j]>arr[j+1]){
-//                 swap(arr[j],arr[j+1]);
-//                 flag=0;
-//             }
+/*void BubbleSort(int arr[],int n){
+ // Write your code here.
+     for(int i=n-1;i>=0;i--){
+        bool flag=1;
+        for(int j=0;j<i;j++){
+            if(arr[j]>arr[j+1]){
+                swap(arr[j],arr[j+1]);
+                flag=0;
+            }
 
-//         }
-//         if(flag){
-//                 return;
-//             }
-//     }
+        }
+        if(flag){
+                return;
+            }
+    }
 
-//     cout<<endl;
-//     for(int i=0;i<n;i++){
-//         cout<<arr[i];
-//     }
+    cout<<endl;
+    for(int i=0;i<n;i++){
+        cout<<arr[i];
+    }
 
-// }
+}
 
-// int main(){
-//     int arr[7]= {4,5,6,7,1,2,3};
-//     BubbleSort(arr,7);
+int main(){
+    int arr[7]= {4,5,6,7,1,2,3};
+    BubbleSort(arr,7);
 
-// }
+}*/
 
 //use case: har i th round mai hm ith largest emenent ko uske right place par pahucha dete h 
 

@@ -177,6 +177,27 @@ bool BinSearch(int arr[][4],int row, int col,int key){
     return 0;
 }
 
+//Binary Search (when row and col both sorted) 
+bool searchMatrix(int matrix[][4], int row ,int col, int target) {
+        
+
+        int rowIndex=0;
+        int colIndex=col-1;
+
+        //Yaha Binary search ka search space kam karne  wala logic lag rha h 
+
+        while(rowIndex<row && colIndex>=0){
+            int element=matrix[rowIndex][colIndex];
+            if(target==element)
+            return 1;
+            else if(target<element)
+            colIndex--;
+            else
+            rowIndex++;
+        }
+        return 0; 
+    }
+
 
 
 
@@ -274,5 +295,13 @@ int main(){
     // cout<<"Not Present";
     
 
+    //Binary Search 2D part 2 (leetcode 240 no.)
+    if(searchMatrix(arr,3,4,41))
+    cout<<"Element is Present"<<endl;
+    else
+    cout<<"Not Present";
+    
 
 }
+
+

@@ -479,50 +479,112 @@ using namespace std;
 
     //string compression (imp question ) leetcode 443
     
-    string compression(string s){
-        string temp;
-        int i=0;
-        int ansIndex=0;
-        int n=s.length();
+    // string compression(string s){
+    //     string temp;
+    //     int i=0;
+    //     int ansIndex=0;
+    //     int n=s.length();
 
-        while(i<n){
-            int j=i+1;
-            while (j<n &&s[i]==s[j]){
-                j++;
-            }
+    //     while(i<n){
+    //         int j=i+1;
+    //         while (j<n &&s[i]==s[j]){
+    //             j++;
+    //         }
 
-            //yaha kab aaege
-            //ya to string pura traverse ho jaye 
-            //ya to new/Different chater encounter kia hai
+    //         //yaha kab aaege
+    //         //ya to string pura traverse ho jaye 
+    //         //ya to new/Different chater encounter kia hai
             
-            //old char store kar lo
-            s[ansIndex]=s[i];
-            ansIndex++;
+    //         //old char store kar lo
+    //         s[ansIndex]=s[i];
+    //         ansIndex++;
 
-            int count=j-i;
+    //         int count=j-i;
 
-            if(count>1){
-                //converting counting into single digit and saving in answer
-                string cvt =to_string(count);
-                for( char ch : cvt){
-                    s[ansIndex]=ch;
-                    ansIndex++;
+    //         if(count>1){
+    //             //converting counting into single digit and saving in answer
+    //             string cvt =to_string(count);
+    //             for( char ch : cvt){
+    //                 s[ansIndex]=ch;
+    //                 ansIndex++;
 
-                }
-            }
-            //Moving new or different chacter 
-            i=j;
-        }
-        for(int i=0;i<ansIndex;i++){
-            temp.push_back(s[i]);
-        }
+    //             }
+    //         }
+    //         //Moving new or different chacter 
+    //         i=j;
+    //     }
+    //     for(int i=0;i<ansIndex;i++){
+    //         temp.push_back(s[i]);
+    //     }
+    //     return temp;
+    // }
+
+
+
+    // int main(){
+    //     string s="aaabbbcccddddddddeeeeeeeeeeeeeeeeeeeeeee";
+    //     cout<<compression(s);
+    // }
+
+
+
+
+
+
+
+ //split string and check no of vowels are equal ir not   
+    bool isVowel(char ch){
+    if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'){
+        return 1;
+    }
+    return 0;
+}
+
+char isLower(char ch){
+    if(ch>='a'  && ch<='z' || ch>='0' && ch<='9'){
+        return ch;
+    }
+    else{
+        char temp=ch-'A'+'a';
         return temp;
     }
+} 
+bool splitString(string &str){
+    // Write your code here.
+    int start=0;
+    int end=str.length()-1;
 
+    int mid=start+(end-start)/2;
 
+    int count1=0;
+    int count2=0;
 
-    int main(){
-        string s="aaabbbcccddddddddeeeeeeeeeeeeeeeeeeeeeee";
-        cout<<compression(s);
+    while(start<=mid){
+        char ch=isLower(str[start]);
+        if(isVowel(ch))
+        count1++;
+        
+        start++;
+        
+        
     }
+    
+    mid++;
+    while(mid<=end){
+        char ch=isLower(str[mid]);
+        if(isVowel(ch))
+        count2++;
+        mid++;
+    }
+    
+    if(count1==count2)
+    return 1;
+    return 0;
+
+
+}
+int main(){
+    string s="codingninjas";
+    cout<<splitString(s);
+}
 
