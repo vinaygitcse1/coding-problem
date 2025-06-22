@@ -636,3 +636,34 @@ int aggressiveCows(vector<int> &stalls, int k)
     }
     return ans;
 }*/
+
+
+
+// Ninjas and triangle 
+/*
+int ninjaAndTriangle(int n) {
+    // Write your code here.
+    long long start=0;
+    long long end=n-1;
+
+    long long mid=start+(end-start)/2;
+    
+    long long ans=0;
+    while(start<=end){
+        long long  element=(mid*(mid+1))/2;
+        if(element>n){
+            end=mid-1;
+        }
+        else if(element<n){
+            ans=mid;
+            start=mid+1;
+        }
+        else{
+            ans=mid;
+            break;
+        }
+        mid=start+(end-start)/2;
+
+    }
+    return (int) ans;
+}*/
