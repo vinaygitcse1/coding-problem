@@ -345,10 +345,136 @@ int main(){
 
 
 
+
+
 //Polymorphism (existing in multiple forms)
 //  a man is (father, son,brother,husband,teacher, doctor,studentetc )
 
 // Two types : Compile time Polymorphism, Run time Polymorphism
+// compile time polymorphism are two types : function overloading , operator overloading
 
 
+
+// compile time polymorphism also calles staic polymorphism
+//function overloading (same function in multiple form)(name is same, signature is different)
+/*
+class A{
+    public:
+    void sayHello(){
+        cout<<"Hello Vinay Tiwari"<<endl;
+    }
+
+    int sayHello(int n){
+        cout<<"Hello Vinay tiwari"<<endl;
+        return n;
+    }
+
+    void sayHello(string name){
+        cout<<"Hello "<<name<<endl;
+    }
+};
+
+int main(){
+    A obj;
+    obj.sayHello();
+    obj.sayHello(10);
+    obj.sayHello("Vinay");
+}
+*/
+
+
+
+
+
+
+
+// operator overloading
+
+/*
+class B{
+    public:
+    int a;
+    int b;
+
+    public:
+    int add(){
+        return a+b;
+    }
+
+    //operator overloading 
+    void operator+( B& obj){
+        int value1=this->a;
+        int value2=obj.a;
+        cout<<"Output  "<<value2-value1<<endl;
+    }
+
+    void operator() (){
+        cout<<"Main Bracket Hu "<<this->a<<endl;
+    }
+};
+
+int main(){
+    B obj1,obj2;
+    obj1.a=4;
+    obj2.a=7;
+
+    obj1+obj2;
+    
+    obj1();
+}
+
+*/
+
+
+
+
+// Runtime Polymorphism/Dynamic polymorphism
+
+// Method Overriding
+
+
+// Rules:1. Method of parent class, child class must have same name 
+//2. Method of parent class and child class must have same parameter
+// 3.It is possible through inheritance only
+
+//Method overriding
+/*
+class Animal{
+    public:
+    void speak(){
+        cout<<"Speaking"<<endl;
+    }
+};
+class Dog  : public Animal{
+
+    public:
+    void speak(){
+        cout<<"Barking"<<endl;
+    }
+};
+int main(){
+    Dog obj;
+    obj.speak();
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+//Abstraction( i.e, "implementation hiding " or  jo required chize h bas wo bata do puri ram kahani batane ki need nhi h )
+
+// abstraction usig classes achieve through access specifiers(public, protected, private)
+
+
+
+
+// h.w.: interface, friend function, virtual function
+//go chrome search "love babbar oops cheetsheet" 
 
