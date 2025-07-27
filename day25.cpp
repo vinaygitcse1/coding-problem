@@ -1,6 +1,7 @@
 #include <iostream>
 #include<queue>
 #include<deque>
+#include<vector>
 using namespace std;
 
 // queue reversal using stack (approach 1)
@@ -390,5 +391,82 @@ class Kqueue{
 
 
 //Sum of minimum and maximum elements of all subarrays of size k
+/*
+
+    int  sumofmaxmin(int arr[], int n, int k) {
+
+        deque<int>max(k);
+        deque<int>min(k);
+
+
+        //for first k element window 
+        for(int i=i;i<k;i++){
+
+            //for max element
+            while(!max.empty() && arr[i]>=arr[max.back()]){
+                max.pop_back();
+            }
+            //for min element
+            while(!min.empty() && arr[i]<=arr[min.back()]){
+                min.pop_back();
+            }
+
+            max.push_back(i);
+            min.push_back(i);
+
+        }
+
+        int sum=0;
+        sum=sum + arr[max.front()]+arr[min.front()];
+
+
+        //for remaining window
+        for(int i=k;i<n;i++){
+            //removal ka logic
+            while(!max.empty() && i-max.front()>=k){
+                max.pop_front();
+
+            }
+            while(!min.empty() && i-min.front()>=k){
+                min.pop_front();
+            }
+
+            //dalne ka logic
+                        //for max element
+            while(!max.empty() && arr[i]>=arr[max.back()]){
+                max.pop_back();
+            }
+            //for min element
+            while(!min.empty() && arr[i]<=arr[min.back()]){
+                min.pop_back();
+            }
+
+            max.push_back(i);
+            min.push_back(i);
+
+            sum=sum + arr[max.front()]+arr[min.front()];
+
+
+
+        }
+        return sum;
+
+    }
+
+int main(){
+    int arr[7]={2, 5, -1, 7, -3, -1, -2}  ;
+    int k=3;
+    cout<<"Sum is "<<sumofmaxmin(arr,7,k);
+}
+
+*/
+
+
+
+
+
+
+// h.w.: solve love babbar 450 sheets 
+
 
 
