@@ -534,6 +534,42 @@ class Solution {
     }
 };*/
 
+
+
+
+//mirror binary tree
+/*void mirrorBinaryTree(BinaryTreeNode<int>* root) {
+
+	BinaryTreeNode<int>* temp;
+    if(root==NULL){
+		return;
+	}
+	if(root->left==NULL && root->right ==NULL){
+		return;
+	}
+	if(root->left!=NULL && root->right ==NULL){
+		temp=root->left;
+		root->left=NULL;
+		root->right=temp;
+	}
+	if(root->left==NULL && root->right !=NULL){
+		temp=root->right;
+		root->right=NULL;
+		root->left=temp;
+	}
+
+	if(root->left!=NULL && root->right !=NULL){
+		temp=root->right;
+		root->right=root->left;
+		root->left=temp;
+	}
+
+	mirrorBinaryTree(root->left);
+	mirrorBinaryTree(root->right);
+
+
+}*/
+
 int main(){
     node*root=NULL;
 
@@ -601,6 +637,10 @@ int main(){
 
     //check sum tree or not 
     // cout<<isSumtree(root)<<endl;
+
+
+    //mirror binary tree
+    // cout<<mirrorBinaryTree(root);
 
 
 
